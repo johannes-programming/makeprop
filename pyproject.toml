@@ -21,7 +21,7 @@ keywords = []
 name = "makeprop"
 readme = "README.rst"
 requires-python = ">=3.12.5"
-version = "0.0.2.dev0"
+version = "0.0.3.dev0"
 
 [project.license]
 file = "LICENSE.txt"
@@ -29,4 +29,6 @@ file = "LICENSE.txt"
 [project.urls]
 Documentation = "https://pypi.org/project/makeprop"
 Download = "https://pypi.org/project/makeprop/#files"
+Index = "https://pypi.org/project/makeprop"
 Source = "https://github.com/johannes-programming/makeprop"
+Website = "https://makeprop.johannes-programming.online"
