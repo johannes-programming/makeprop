@@ -1,6 +1,2 @@
-def main(args=None):
-    print("Hello World!")
-
-
-if __name__ == "__main__":
-    main()
+from makeprop.core import *
+from makeprop.tests import *
