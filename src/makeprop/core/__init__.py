@@ -10,7 +10,7 @@ class makeprop:
 
     def __call__(self, func):
         if self.var is None:
-            var = "_" + func.__name__
+            var = "_%s" % func.__name__
         else:
             var = self.var
 
