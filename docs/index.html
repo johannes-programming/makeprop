@@ -10,6 +10,25 @@
             <p>Make a simple property.</p>
         </div>
         <div id="install"></div>
+        <div id="usage">
+            <h2>Usage</h2>
+            <pre><code>
+from makeprop import makeprop
+
+# Define a class and use makeprop to create a property
+class Example:
+    @makeprop()
+    def value(self, x):
+        """Square the value before storing it."""
+        return x ** 2
+
+# Use the property
+example = Example()
+example.value = 4
+print(example.value)  # Output: 16
+
+</code></pre>
+        </div>
         <div id="testing"></div>
         <div id="license"></div>
         <div id="links"></div>
