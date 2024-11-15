@@ -1,24 +1,73 @@
 import dataclasses
 from typing import *
 
+from overloadable import overloadable
+
 __all__ = ["makeprop"]
 
 
 @dataclasses.dataclass
 class makeprop:
     var: Optional[str] = None
+    hasdeleter: bool = False
+    deletervalue: Any = None
 
-    def __call__(self, func):
+    @overloadable
+    def __init__(self, *args: Any, **kwargs: Any) -> bool:
+        "This magic method sets up the current instance."
+        return "delete" in kwargs.keys()
+
+    __init__.overload(False)
+
+    def __init__(self, var: Optional[str] = None) -> None:
+        return self.__init_1(var)
+
+    __init__.overload(True)
+
+    def __init__(self, var: Optional[str] = None, *, delete: Any) -> None:
+        return self.__init_1(var, hasdeleter=True, deletervalue=delete)
+
+    def __init_1(
+        self,
+        var: Optional[str] = None,
+        /,
+        hasdeleter: bool = False,
+        deletervalue: Any = None,
+    ) -> None:
+        "This method is the common ending of both versions of __init__."
+        if var is None:
+            self.var = None
+        else:
+            self.var = str(var)
+        self.hasdeleter = hasdeleter
+        self.deletervalue = deletervalue
+
+    def __call__(self, func: Callable) -> property:
+        "This magic method implements calling the current instance."
         if self.var is None:
             var = "_%s" % func.__name__
         else:
             var = self.var
+        deletervalue = self.deletervalue
+
+        kwargs = dict(doc=func.__doc__)
 
         def fget(_self):
             return getattr(_self, var)
 
-        def fset(_self, value):
+        kwargs["fget"] = fget
+
+        def fset(_self, value) -> None:
             setattr(_self, var, func(_self, value))
 
-        ans = property(fget=fget, fset=fset, doc=func.__doc__)
+        kwargs["fset"] = fset
+
+        if self.hasdeleter:
+
+            def fdel(_self) -> None:
+                setattr(_self, var, func(_self, deletervalue))
+
+            kwargs["fdel"] = fdel
+
+        ans = property(**kwargs)
         return ans
