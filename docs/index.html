@@ -4,19 +4,53 @@
     <title>makeprop</title>
 </head>
     <body>
-        <div id="top"></div>
-        <div id="overview">
-            <h2>Overview</h2>
-            <p>Make a simple property.</p>
-        </div>
-        <div id="install"></div>
-        <div id="testing"></div>
-        <div id="license"></div>
-        <div id="links"></div>
-        <div id="credits"></div>
-        <script src="https://www.johannes-programming.online/script.js"></script>
-        <script>
-            setupBasicProject();
-        </script>
+        <dl class="heading0">
+            <dt>makeprop</dt>
+            <dd>
+                <dl class="heading1">
+                    <dt id="overview">Overview</dt>
+                    <dd id="overviewCorpus">
+                        <p>
+                            This projects allows you to easily create a simple property.
+                        </p>
+                    </dd>
+                    <dt id="links">Links</dt>
+                    <dd id="linksCorpus"></dd>
+                    <dt id="install">Installation</dt>
+                    <dd id="installCorpus"></dd>
+                    <dt id="usage">Usage</dt>
+                    <dd id="usageCorpus">
+                        <pre class="block"><code>from makeprop import makeprop
+
+# Define a class and use makeprop to create a property
+class Example:
+    @makeprop()
+    def value(self, x):
+        """Square the value before storing it."""
+        return x ** 2
+
+# Use the property
+example = Example()
+example.value = 4
+print(example.value)  # Output: 16</code></pre>
+                    </dd>
+                    <dt id="testing">Testing</dt>
+                    <dd id="testingCorpus"></dd>
+                    <dt id="license">License</dt>
+                    <dd id="licenseCorpus"></dd>
+                    <dt id="impressum">Impressum</dt>
+                    <dd id="impressumCorpus"></dd>
+                </dl>
+            </dd>
+        </dl>
     </body>
+    <script src="https://www.johannes-programming.online/script.js"></script>
+    <script>
+        setupLinksCorpus("makeprop");
+        setupInstallCorpus("makeprop");
+        setupTestingCorpus("makeprop");
+        setupLicenseCorpus("makeprop");
+        setupImpressumCorpus("makeprop");
+        addMetaAndLinkTags();
+    </script>
 </html>
