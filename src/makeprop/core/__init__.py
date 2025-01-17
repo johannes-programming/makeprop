@@ -17,13 +17,11 @@ class makeprop:
         "This magic method sets up the current instance."
         return "delete" in kwargs.keys()
 
-    __init__.overload(False)
-
+    @__init__.overload(False)
     def __init__(self, var: Optional[str] = None) -> None:
         return self.__init_1(var)
 
-    __init__.overload(True)
-
+    @__init__.overload(True)
     def __init__(self, var: Optional[str] = None, *, delete: object) -> None:
         return self.__init_1(var, hasdeleter=True, deletervalue=delete)
 
