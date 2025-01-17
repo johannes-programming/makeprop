@@ -10,7 +10,7 @@ __all__ = ["makeprop"]
 class makeprop:
     var: Optional[str] = None
     hasdeleter: bool = False
-    deletervalue: Any = None
+    deletervalue: object = None
 
     @overloadable
     def __init__(self, *args: Any, **kwargs: Any) -> bool:
@@ -24,7 +24,7 @@ class makeprop:
 
     __init__.overload(True)
 
-    def __init__(self, var: Optional[str] = None, *, delete: Any) -> None:
+    def __init__(self, var: Optional[str] = None, *, delete: object) -> None:
         return self.__init_1(var, hasdeleter=True, deletervalue=delete)
 
     def __init_1(
@@ -32,7 +32,7 @@ class makeprop:
         var: Optional[str] = None,
         /,
         hasdeleter: bool = False,
-        deletervalue: Any = None,
+        deletervalue: object = None,
     ) -> None:
         "This method is the common ending of both versions of __init__."
         if var is None:
