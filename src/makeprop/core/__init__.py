@@ -14,15 +14,17 @@ class makeprop:
 
     @overloadable
     def __init__(self, *args: Any, **kwargs: Any) -> bool:
-        "This magic method sets up the current instance."
+        "This function works as dispatcher."
         return "delete" in kwargs.keys()
 
     @__init__.overload(False)
     def __init__(self, var: Optional[str] = None) -> None:
+        "This magic method sets up the current instance."
         return self.__init_1(var)
 
     @__init__.overload(True)
     def __init__(self, var: Optional[str] = None, *, delete: object) -> None:
+        "This magic method sets up the current instance."
         return self.__init_1(var, hasdeleter=True, deletervalue=delete)
 
     def __init_1(
