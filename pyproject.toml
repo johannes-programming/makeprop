@@ -26,7 +26,7 @@ keywords = []
 name = "makeprop"
 readme = "README.rst"
 requires-python = ">=3.8"
-version = "0.1.1+local.2"
+version = "1.0.0.dev0+local"
 
 [project.license]
 file = "LICENSE.txt"
