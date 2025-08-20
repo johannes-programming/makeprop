@@ -1,15 +1,15 @@
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = [
-    "setuptools>=61.0",
+    "setuptools>=61.0,<62",
 ]
 
 [project]
 authors = [
-    { email = "johannes-programming@mailfence.com", name = "Johannes" },
+    { email = "johannes.programming@gmail.com", name = "Johannes" },
 ]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 5 - Production/Stable",
     "License :: OSI Approved :: MIT License",
     "Natural Language :: English",
     "Operating System :: OS Independent",
@@ -19,13 +19,13 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "overloadable>=1.0.9",
+    "overloadable>=1.0.9,<2",
 ]
-description = "makeprop"
+description = "This projects allows you to easily create a simple property."
 keywords = []
 name = "makeprop"
 readme = "README.rst"
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 version = "1.0.0+local"
 
 [project.license]
