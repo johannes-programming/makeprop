@@ -13,17 +13,17 @@ class makeprop:
     deletervalue: object = None
 
     @overloadable
-    def __init__(self, *args: Any, **kwargs: Any) -> bool:
+    def __init__(self: Self, *args: Any, **kwargs: Any) -> bool:
         "This function works as dispatcher."
         return "delete" in kwargs.keys()
 
     @__init__.overload(False)
-    def __init__(self, var: Optional[str] = None) -> None:
+    def __init__(self: Self, var: Optional[str] = None) -> None:
         "This magic method sets up the current instance."
         return self.__init_1(var)
 
     @__init__.overload(True)
-    def __init__(self, var: Optional[str] = None, *, delete: object) -> None:
+    def __init__(self: Self, var: Optional[str] = None, *, delete: object) -> None:
         "This magic method sets up the current instance."
         return self.__init_1(var, hasdeleter=True, deletervalue=delete)
 
@@ -39,10 +39,10 @@ class makeprop:
             self.var = None
         else:
             self.var = str(var)
-        self.hasdeleter = hasdeleter
-        self.deletervalue = deletervalue
+        self.hasdeleter: bool = hasdeleter
+        self.deletervalue: object = deletervalue
 
-    def __call__(self, func: Callable) -> property:
+    def __call__(self: Self, func: Callable) -> property:
         "This magic method implements calling the current instance."
         if self.var is None:
             var = "_%s" % func.__name__
@@ -50,7 +50,7 @@ class makeprop:
             var = self.var
         deletervalue = self.deletervalue
 
-        kwargs = dict(doc=func.__doc__)
+        kwargs: dict = dict(doc=func.__doc__)
 
         def fget(_self):
             return getattr(_self, var)
@@ -69,5 +69,5 @@ class makeprop:
 
             kwargs["fdel"] = fdel
 
-        ans = property(**kwargs)
+        ans: property = property(**kwargs)
         return ans
