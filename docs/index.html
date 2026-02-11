@@ -28,7 +28,12 @@
                     <dt>Features</dt>
                     <dd>
                         <dl class="heading4" version="1.0">
-                            <dt id="1--makeprop">class makeprop</dt>
+                            <dt id="1--makeprop">
+                                <ul>
+                                    <li>class makeprop(var: Optional[str] = None)</li>
+                                    <li>class makeprop(var: Optional[str] = None, *, delete: object)</li>
+                                </ul>
+                            </dt>
                             <dd>
                                 <p>Usage:</p>
                                 <pre class="block"><code>from makeprop import makeprop
@@ -44,6 +49,8 @@
         example = Example()
         example.value = 4
         print(example.value)  # Output: 16</code></pre>
+                                <dt>__call__(func: Callable) -> property</dt>
+                                <dd></dd>
                             </dd>
                             <dt id="1--test">makeprop.test() -> unittest.TextTestRunner</dt>
                             <dd class="testingCorpus"></dd>
