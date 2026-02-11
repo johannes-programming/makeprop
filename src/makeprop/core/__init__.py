@@ -39,18 +39,21 @@ class makeprop:
             self.var = None
         else:
             self.var = str(var)
-        self.hasdeleter: bool = hasdeleter
-        self.deletervalue: object = deletervalue
+        self.hasdeleter = hasdeleter
+        self.deletervalue = deletervalue
 
     def __call__(self: Self, func: Callable) -> property:
         "This magic method implements calling the current instance."
+        deletervalue: Any
+        kwargs: dict[str, Any]
+        var: Any
         if self.var is None:
             var = "_%s" % func.__name__
         else:
             var = self.var
         deletervalue = self.deletervalue
 
-        kwargs: dict = dict(doc=func.__doc__)
+        kwargs = dict(doc=func.__doc__)
 
         def fget(_self):
             return getattr(_self, var)
@@ -69,5 +72,4 @@ class makeprop:
 
             kwargs["fdel"] = fdel
 
-        ans: property = property(**kwargs)
-        return ans
+        return property(**kwargs)
