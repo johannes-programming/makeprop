@@ -1,7 +1,7 @@
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = [
-    "setuptools>=61.0,<62",
+    "setuptools>=64.0",
 ]
 
 [project]
@@ -26,7 +26,7 @@ keywords = []
 name = "makeprop"
 readme = "README.rst"
 requires-python = ">=3.11"
-version = "1.0.1"
+version = "1.0.2"
 
 [project.license]
 file = "LICENSE.txt"
