@@ -39,17 +39,17 @@
                                 <p>Usage:</p>
                                 <pre class="block"><code>from makeprop import makeprop
 
-        # Define a class and use makeprop to create a property
-        class Example:
-            @makeprop()
-            def value(self, x):
-                """Square the value before storing it."""
-                return x ** 2
+# Define a class and use makeprop to create a property
+class Example:
+    @makeprop()
+    def value(self, x):
+        """Square the value before storing it."""
+        return x ** 2
 
-        # Use the property
-        example = Example()
-        example.value = 4
-        print(example.value)  # Output: 16</code></pre>
+# Use the property
+example = Example()
+example.value = 4
+print(example.value)  # Output: 16</code></pre>
                                 <dl class="heading4">
                                     <dt>__call__(func: Callable) -> property</dt>
                                     <dd></dd>
