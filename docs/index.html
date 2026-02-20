@@ -67,13 +67,20 @@ print(example.value)  # Output: 16</code></pre>
             </dd>
         </dl>
     </body>
-    <script src="https://www.johannes-programming.online/script.js"></script>
-    <script>
-        setupLinksCorpus("makeprop");
-        setupInstallCorpus("makeprop");
-        setupTestingCorpus("makeprop");
-        setupLicenseCorpus("makeprop");
+    <script type="module">
+        import {
+            setupImpressumCorpus,
+            setupInstallCorpus,
+            setupLicenseCorpus,
+            setupLinksCorpus,
+            setupTestingCorpus,
+            addMetaAndLinkTags,
+        } from "https://www.johannes-programming.online/main.js";
         setupImpressumCorpus("makeprop");
+        setupInstallCorpus("makeprop");
+        setupLicenseCorpus("makeprop");
+        setupLinksCorpus("makeprop");
+        setupTestingCorpus("makeprop");
         addMetaAndLinkTags();
     </script>
 </html>
