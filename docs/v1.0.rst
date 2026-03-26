@@ -1,0 +1,73 @@
+Overview
+--------
+
+This projects allows you to easily create a simple property.
+
+Installation
+------------
+
+To install makeprop, you can use pip. Open your terminal and run:
+
+.. code-block:: shell
+
+    pip install makeprop
+
+Features
+--------
+
+``class makeprop(var: Optional[str] = None)`` ``class makeprop(var: Optional[str] = None, *, delete: object)``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Usage:
+
+.. code-block:: python
+
+    from makeprop import makeprop
+
+    # Define a class and use makeprop to create a property
+    class Example:
+        @makeprop()
+        def value(self, x):
+            """Square the value before storing it."""
+            return x ** 2
+
+    # Use the property
+    example = Example()
+    example.value = 4
+    print(example.value)  # Output: 16
+
+``__call__(func: Callable) -> property``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``makeprop.test() -> unittest.TextTestRunner``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This project can be tested through its test function.
+
+.. code-block:: python
+
+    import makeprop
+    makeprop.test()
+
+License
+-------
+
+This project is licensed under the MIT License.
+
+Links
+-----
+
+- Download: https://pypi.org/project/makeprop/#files
+- Index: https://pypi.org/project/makeprop/
+- Source: https://github.com/johannes-programming/makeprop/
+- Website: https://makeprop.johannes-programming.online/
+
+Impressum
+---------
+
+**Johannes Programming**
+
+- Name: Johannes
+- Email: johannes.programming@gmail.com
+- Homepage: https://www.johannes-programming.online/
+- Gravatar: https://www.johannes-programming.fyi/

@@ -1,86 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>makeprop</title>
-</head>
+    <head>
+        <link rel="icon" type="image/svg+xml" href="https://www.johannes-programming.online/icon.svg">
+        <link rel="stylesheet" href="https://www.johannes-programming.online/versioning/styles.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>makeprop</title>
+    </head>
     <body>
-        <dl class="heading0">
-            <dt>
-                <a>makeprop</a>
-                <p>
-                    Minor Version:
-                    <select id="version">
-                        <option selected>1.0</option>
-                    </select>
-                </p>
-            </dt>
-            <dd>
-                <dl class="heading1">
-                    <dt id="overview">Overview</dt>
-                    <dd id="overviewCorpus">
-                        <p>
-                            This projects allows you to easily create a simple property.
-                        </p>
-                    </dd>
-                    <dt id="links">Links</dt>
-                    <dd id="linksCorpus"></dd>
-                    <dt id="install">Installation</dt>
-                    <dd id="installCorpus"></dd>
-                    <dt>Features</dt>
-                    <dd>
-                        <dl class="heading4" version="1.0">
-                            <dt id="1--makeprop">
-                                <ul>
-                                    <li>class makeprop(var: Optional[str] = None)</li>
-                                    <li>class makeprop(var: Optional[str] = None, *, delete: object)</li>
-                                </ul>
-                            </dt>
-                            <dd>
-                                <p>Usage:</p>
-                                <pre class="block"><code>from makeprop import makeprop
-
-# Define a class and use makeprop to create a property
-class Example:
-    @makeprop()
-    def value(self, x):
-        """Square the value before storing it."""
-        return x ** 2
-
-# Use the property
-example = Example()
-example.value = 4
-print(example.value)  # Output: 16</code></pre>
-                                <dl class="heading4">
-                                    <dt>__call__(func: Callable) -> property</dt>
-                                    <dd></dd>
-                                </dl>
-                            </dd>
-                            <dt id="1--test">makeprop.test() -> unittest.TextTestRunner</dt>
-                            <dd class="testingCorpus"></dd>
-                        </dl>
-                    </dd>
-                    <dt id="license">License</dt>
-                    <dd id="licenseCorpus"></dd>
-                    <dt id="impressum">Impressum</dt>
-                    <dd id="impressumCorpus"></dd>
-                </dl>
-            </dd>
-        </dl>
+        <header>
+            <a href="https://makeprop.johannes-programming.online/">makeprop</a>
+            <p>
+                Minor Version:
+                <select id="version">
+                    <option>1.0</option>
+                    <option selected>1.1</option>
+                </select>
+            </p>
+        </header>
+        <div id="rst"></div>
     </body>
-    <script type="module">
-        import {
-            setupImpressumCorpus,
-            setupInstallCorpus,
-            setupLicenseCorpus,
-            setupLinksCorpus,
-            setupTestingCorpus,
-            addMetaAndLinkTags,
-        } from "https://www.johannes-programming.online/main.js";
-        setupImpressumCorpus("makeprop");
-        setupInstallCorpus("makeprop");
-        setupLicenseCorpus("makeprop");
-        setupLinksCorpus("makeprop");
-        setupTestingCorpus("makeprop");
-        addMetaAndLinkTags();
-    </script>
+    <script type="module" src="https://www.johannes-programming.online/versioning/main.js"></script>
 </html>
