@@ -1,5 +1,5 @@
 import unittest
-from typing import *
+from typing import Any, Self
 
 from makeprop.core import makeprop
 
@@ -36,16 +36,16 @@ class TestMakeprop(unittest.TestCase):
 
         class TestClass:
             @makeprop()
-            def my_prop(self, value):
+            def my_prop(self: Self, value: Any) -> Any:
                 return value * 2
 
         obj: TestClass
         obj = TestClass()
-        obj._my_prop = 10
+        obj._my_prop = 10  # type: ignore[attr-defined]
         self.assertEqual(obj.my_prop, 10)
 
         obj.my_prop = 15
-        self.assertEqual(obj._my_prop, 30)
+        self.assertEqual(obj._my_prop, 30)  # type: ignore[attr-defined]
         self.assertEqual(obj.my_prop, 30)
 
     def test_call_with_deleter(self: Self) -> None:
@@ -60,15 +60,15 @@ class TestMakeprop(unittest.TestCase):
 
         obj: TestClass
         obj = TestClass()
-        obj._my_prop = 10
+        obj._my_prop = 10  # type: ignore[attr-defined]
         self.assertEqual(obj.my_prop, 10)
 
         obj.my_prop = 5
-        self.assertEqual(obj._my_prop, 15)
+        self.assertEqual(obj._my_prop, 15)  # type: ignore[attr-defined]
         self.assertEqual(obj.my_prop, 15)
 
         del obj.my_prop
-        self.assertEqual(obj._my_prop, 0)
+        self.assertEqual(obj._my_prop, 0)  # type: ignore[attr-defined]
 
 
 if __name__ == "__main__":

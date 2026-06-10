@@ -3,7 +3,7 @@ import unittest
 __all__ = ["test"]
 
 
-def test() -> unittest.TextTestRunner:
+def test() -> unittest.TextTestResult:
     loader: unittest.TestLoader
     tests: unittest.TestSuite
     loader = unittest.TestLoader()

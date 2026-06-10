@@ -1,9 +1,12 @@
 import dataclasses
-from typing import *
+from collections.abc import Callable
+from typing import Any, Final, Optional, Self, overload
+
+import setdoc
 
 __all__ = ["makeprop"]
 
-DEFAULT = object()
+DEFAULT: Final[object] = object()
 
 
 @dataclasses.dataclass
@@ -12,8 +15,8 @@ class makeprop:
     hasdeleter: bool = False
     deletervalue: object = None
 
-    def __call__(self: Self, func: Callable) -> property:
-        "This magic method implements calling the current instance."
+    @setdoc.basic
+    def __call__(self: Self, func: Callable[..., Any]) -> property:
         deletervalue: Any
         kwargs: dict[str, Any]
         var: Any
@@ -24,11 +27,13 @@ class makeprop:
         deletervalue = self.deletervalue
         kwargs = dict(doc=func.__doc__)
 
+        @setdoc.basic
         def fget(_self: Self) -> Any:
             return getattr(_self, var)
 
         kwargs["fget"] = fget
 
+        @setdoc.basic
         def fset(_self: Self, value: Any) -> None:
             setattr(_self, var, func(_self, value))
 
@@ -36,6 +41,7 @@ class makeprop:
 
         if self.hasdeleter:
 
+            @setdoc.basic
             def fdel(_self: Self) -> None:
                 setattr(_self, var, func(_self, deletervalue))
 
@@ -44,22 +50,22 @@ class makeprop:
         return property(**kwargs)
 
     @overload
-    def __init__(self: Self, var: Optional[str] = None) -> None:
-        "This magic method sets up the current instance."
-        ...
+    @setdoc.basic
+    def __init__(self: Self, var: Optional[str] = None) -> None: ...
 
     @overload
-    def __init__(self: Self, var: Optional[str] = None, *, delete: object) -> None:
-        "This magic method sets up the current instance."
-        ...
+    @setdoc.basic
+    def __init__(
+        self: Self, var: Optional[str] = None, *, delete: object
+    ) -> None: ...
 
+    @setdoc.basic
     def __init__(
         self: Self,
         var: Optional[str] = None,
         *,
         delete: object = DEFAULT,
     ) -> None:
-        "This magic method sets up the current instance."
         self.var = None if (var is None) else str(var)
         self.hasdeleter = delete is not DEFAULT
         self.deletervalue = delete if self.hasdeleter else None
